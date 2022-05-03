@@ -9,6 +9,119 @@
     box-sizing: border-box;
 }
 
+
+
+
+/* ANIMACION IMAGEN FOO */
+
+.animacionFoo{
+    animation: animacionFoo 10s infinite ;
+}
+
+@keyframes animacionFoo {
+    0%{transform: translateY(-30px);}
+    30%{transform: translateY(0) rotate(3deg);}
+    50%{transform: rotate(-3deg);}
+    75%{transform: rotate(3deg);}
+    100%{transform: translateY(-30px);}
+
+}
+
+
+
+
+
+/* Grids Contacto */
+
+.gridContainerContacto {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1, 100%;
+    grid-template-rows: 10% 70% 20%;
+    grid-template-areas:
+        "seccionNavContacto"
+        "seccionCentralContacto"
+        "seccionFooterContacto";
+}
+
+/* Activo las secciones del Grid */
+.seccionNavContacto {
+    grid-area: seccionNavContacto;
+}
+
+.seccionCentralContacto {
+    grid-area: seccionCentralContacto;
+}
+
+.seccionFooterContacto {
+    grid-area: seccionFooterContacto;
+}
+
+/* Estilos y Display Flex Contacto */
+
+.seccionCentralContacto {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.seccionCentralContacto h1 {
+    justify-content: center;
+    text-align: center;
+    justify-content: space-evenly;
+
+}
+
+.seccionCentralContacto div h1 span {
+    color: #FF7E00;
+}
+
+/* font-size Seccion Contacto */
+
+.seccionCentralContacto div h1 {
+    font-size: 50px;
+}
+
+.seccionCentralContacto div h2 {
+    font-size: 32px;
+}
+
+.seccionCentralContacto div h3 {
+    font-size: 20px;
+}
+
+.seccionCentralContactoForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.seccionFooterContacto {
+    display: flex;
+    justify-content: start;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.seccionFooterContacto footer {
+    width: 100%;
+}
+
+.seccionFooterContacto footer a {
+    margin-left: 100px;
+}
+
+
+
+
+
+
+
+/* MEDIAQUERY MOBILE */
+
 @media screen and (max-width:576px) {
 
     img {
@@ -78,15 +191,41 @@
         padding: 20px;
     }
 
-    button {
+        button {
+            /* Variables */
+            --button_radius: 0.75em;
+            --button_color: #ffb56a;
+            --button_outline_color: #000000;
+            font-size: 17px;
+            font-weight: bold;
+            border: none;
+            border-radius: var(--button_radius);
+            background: var(--button_outline_color);
+        }
 
-        padding: 10px 30px 10px 30px;
-        border-radius: 26px;
-        outline: none;
-        border: 1px solid;
-        background-color: #FF7E00;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 400;
+        .button_top {
+            display: block;
+            box-sizing: border-box;
+            border: 2px solid var(--button_outline_color);
+            border-radius: var(--button_radius);
+            padding: 0.75em 1.5em;
+            background: var(--button_color);
+            color: var(--button_outline_color);
+            transform: translateY(-0.2em);
+            transition: transform 0.1s ease;
+        }
+
+        button:hover .button_top {
+            /* Pull the button upwards when hovered */
+            transform: translateY(-0.33em);
+        }
+
+        button:active .button_top {
+            /* Push the button downwards when pressed */
+            transform: translateY(0);
+        }
+
+
     }
 
     .seccionImagen img {
@@ -103,9 +242,23 @@
 
 
 
-}
 
-/* TABLET */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MEDIAQUERY TABLET */
 
 @media screen and (min-width:577px) and (max-width:1199px) {
 
@@ -171,21 +324,46 @@
     }
 
 
-
-    .cont-boton {
+    .cont-boton{
         display: flex;
         justify-content: center;
     }
 
-    .cont-boton button {
-        padding: 15px 40px 15px 40px;
-        font-size: 20px;
-        font-family: 'Poppins', sans-serif;
-        border-radius: 36px;
-        border: 1px solid gray;
-        background-color: #FF7E00;
-        font-weight: 400;
+    button {
+        /* Variables */
+        --button_radius: 0.75em;
+        --button_color: #ffb56a;
+        --button_outline_color: #000000;
+        font-size: 17px;
+        font-weight: bold;
+        border: none;
+        border-radius: var(--button_radius);
+        background: var(--button_outline_color);
     }
+
+    .button_top {
+        display: block;
+        box-sizing: border-box;
+        border: 2px solid var(--button_outline_color);
+        border-radius: var(--button_radius);
+        padding: 0.75em 1.5em;
+        background: var(--button_color);
+        color: var(--button_outline_color);
+        transform: translateY(-0.2em);
+        transition: transform 0.1s ease;
+    }
+
+    button:hover .button_top {
+        /* Pull the button upwards when hovered */
+        transform: translateY(-0.33em);
+    }
+
+    button:active .button_top {
+        /* Push the button downwards when pressed */
+        transform: translateY(0);
+    }
+    
+
 
     .seccionImagen img {
         width: 80%;
@@ -203,7 +381,14 @@
     }
 
 
+    /* AREA CONTACTO */
 
+    .seccionCentralContacto div h1{
+        font-size: 32px;
+        padding-top: 20px
+    }
+
+.seccionCentralContacto div h2{}
 
 
 
@@ -211,7 +396,26 @@
 }
 
 
-/* DESKTOP */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERY DESKTOP */
 
 @media screen and (min-width:1200px) {
     img {
@@ -353,88 +557,7 @@
 
 }
 
-/* Grids Contacto */
 
-.gridContainerContacto {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1, 100%;
-    grid-template-rows: 10% 70% 20%;
-    grid-template-areas:
-        "seccionNavContacto"
-        "seccionCentralContacto"
-        "seccionFooterContacto";
-}
-
-/* Activo las secciones del Grid */
-.seccionNavContacto {
-    grid-area: seccionNavContacto;
-}
-
-.seccionCentralContacto {
-    grid-area: seccionCentralContacto;
-}
-
-.seccionFooterContacto {
-    grid-area: seccionFooterContacto;
-}
-
-/* Estilos y Display Flex Contacto */
-
-.seccionCentralContacto {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: column;
-}
-
-.seccionCentralContacto h1 {
-    justify-content: center;
-    text-align: center;
-    justify-content: space-evenly;
-
-}
-
-.seccionCentralContacto div h1 span {
-    color: #FF7E00;
-}
-
-/* font-size Seccion Contacto */
-
-.seccionCentralContacto div h1 {
-    font-size: 50px;
-}
-
-.seccionCentralContacto div h2 {
-    font-size: 32px;
-}
-
-.seccionCentralContacto div h3 {
-    font-size: 20px;
-}
-
-.seccionCentralContactoForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    text-align: center;
-}
-
-.seccionFooterContacto {
-    display: flex;
-    justify-content: start;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-.seccionFooterContacto footer {
-    width: 100%;
-}
-
-.seccionFooterContacto footer a {
-    margin-left: 100px;
-}
 
 
 /* @media query MOBILE */
@@ -457,3 +580,15 @@
             font-size: 50px;
         } */
 /* } */
+
+
+
+
+
+/* "# Foo-Coder" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Nicolas-Dev3/Foo-Coder.git
+git push -u origin main */
